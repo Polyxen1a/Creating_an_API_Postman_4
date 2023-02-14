@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.*;
 import ru.skypro.creating_an_api_postman_4.model.Recipe;
 
 
-import javax.validation.Valid;
 import java.util.Collection;
-import javax.util.HashMap;
 import jakarta.validation.Valid;
+import ru.skypro.creating_an_api_postman_4.service.RecipeService;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,8 +32,8 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Tag(name = "Рецепты", description = "CRUD-операции для работы с рецептами")
 
-public class RecipeService {
-    private final RecipeService recipeService;
+public class RecipeController {
+    private final RecipeService RecipeService;
 
     @Operation(summary = "Поиск рецепта по id")
     @ApiResponses(value = {
@@ -65,11 +65,11 @@ public class RecipeService {
                     responseCode = "200",
                     description = "Рецепт изменен",
                     content = {
-                    @Content(
-                            mediaType = "application/json",
-                            schema = @Schema(implementation = Recipe.class)
-                    )
-            }
+                            @Content(
+                                    mediaType = "application/json",
+                                    schema = @Schema(implementation = Recipe.class)
+                            )
+                    }
             )
 
     })
@@ -77,7 +77,7 @@ public class RecipeService {
             @Parameter(name = "id",
                     example = "1")
     })
-    ResponseEntity<Recipe> updateRecipe(@PathVariable Inreger id, @Valid @RequestBody Recipe recipe) {
+    ResponseEntity<Recipe> updateRecipe(@PathVariable Integer id, @Valid @RequestBody Recipe recipe) {
         return ResponseEntity.ok(recipeService.updateRecipe(id, recipe));
     }
     @DeleteMapping("/{id}")
@@ -90,7 +90,7 @@ public class RecipeService {
     })
     @Parameters(value = {@Parameter(name = "id", example = "1")})
     ResponseEntity<Recipe> removeRecipe(@PathVariable Integer id) {
-        return ResponseEntity.ok(recipeService.removeRecipe((id));
+        return ResponseEntity.ok(recipeService.removeRecipe(id));
     }
     @GetMapping
     @Operation(summary = "Получение всех рецептов", description = "поиск производится без параментов")

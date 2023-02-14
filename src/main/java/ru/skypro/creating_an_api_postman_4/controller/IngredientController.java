@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 import ru.skypro.creating_an_api_postman_4.model.Ingredient;
 import ru.skypro.creating_an_api_postman_4.service.IngredientService;
 
-import javax.validation.Valid;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
