@@ -17,6 +17,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import ru.skypro.creating_an_api_postman_4.model.Recipe;
+import org.webjars.NotFoundException;
 
 
 import java.util.Collection;

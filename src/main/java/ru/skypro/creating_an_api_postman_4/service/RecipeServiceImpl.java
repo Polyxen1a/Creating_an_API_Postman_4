@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import ru.skypro.creating_an_api_postman_4.model.Recipe;
+import org.webjars.NotFoundException;
 
 import java.util.Collection;
 import java.util.HashMap;

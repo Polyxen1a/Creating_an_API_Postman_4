@@ -1,5 +1,6 @@
 package ru.skypro.creating_an_api_postman_4.controller;
 
+import io.micrometer.common.util.StringUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -62,6 +63,9 @@ public class IngredientController {
     })
     @PostMapping
     ResponseEntity<Ingredient> addIngredient(@Valid @RequestBody Ingredient ingredient) {
+        if (StringUtils.isBlank(ingredient.getName())) {
+            return ResponseEntity.badRequest().body("Название ингредиента не может быть пустым");
+        }
         return ResponseEntity.ok(ingredientService.addIngredient(ingredient));
     }
 
