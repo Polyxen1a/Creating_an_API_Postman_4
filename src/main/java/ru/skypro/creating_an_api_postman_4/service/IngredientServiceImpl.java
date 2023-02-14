@@ -1,6 +1,7 @@
 package ru.skypro.creating_an_api_postman_4.service;
 
 import org.springframework.stereotype.Service;
+import ru.skypro.creating_an_api_postman_4.exceptions.IngredientExistsException;
 import ru.skypro.creating_an_api_postman_4.model.Ingredient;
 import org.webjars.NotFoundException;
 
